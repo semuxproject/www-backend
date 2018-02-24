@@ -15,7 +15,7 @@ html(lang='en')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css', integrity='sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy', crossorigin='anonymous')
     link(rel='stylesheet', href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', crossorigin='anonymous')
     link(rel='stylesheet', href='https://www.semux.org/css/style.css')
-    link(rel='stylesheet', href='https://www.semux.org/testnetfaucet/css/custom.css')
+    link(rel='stylesheet', href='https://www.semux.org/testnetfaucet/public/css/custom.css')
   body(data-spy='scroll', data-target='#headMenu', data-offset='86')
     .site-wrapper
       header
@@ -58,6 +58,8 @@ html(lang='en')
                     | Check 
                     a(href="https://testnet.semux.info/explorer/account/" + address) testnet blockchain explorer 
                     | - transaction will appear shortly.
+                  span.alert.alert-warning(style='max-width: 600px;margin: 20px auto;')
+                    | Please avoid registering delegate if you're not ready to maintain a validator. Thanks!
             - else if (error == true) 
               .col-xs-12.col-md-12(style='text-align: center;')
                 h1 Error
@@ -73,4 +75,4 @@ html(lang='en')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js', integrity='sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4', crossorigin='anonymous')
     script(src='https://www.google.com/recaptcha/api.js')
-    script(src='https://www.semux.org/testnetfaucet/js/faucet.js')
+    script(src='https://www.semux.org/testnetfaucet/public/js/faucet.js')
