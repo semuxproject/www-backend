@@ -1,0 +1,34 @@
+{
+  "development": {
+    "webport": "8080",
+    "username": "root",
+    "password": "",
+    "database": "semux",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "reconnect": true,
+    "wallet" : {
+      "host" : "http://127.0.0.1:5171/",
+      "auth" : "base64(username:password)",
+      "address" : "0xfe81ddefe30d7ab28f2ce73bb37d3d42603c4ddf",
+      "password" : ""
+    },
+    "recaptchaSecret" : ""
+  },
+  "production": {
+    "webport": "8080",
+    "username": "root",
+    "password": "",
+    "database": "semux",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "reconnect": true,
+    "wallet" : {
+      "host" : "http://127.0.0.1:5171/",
+      "auth" : "base64(username:password)",
+      "address" : "0xfe81ddefe30d7ab28f2ce73bb37d3d42603c4ddf",
+      "password" : ""
+    },
+    "recaptchaSecret" : ""
+  }
+}

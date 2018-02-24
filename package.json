@@ -1,0 +1,66 @@
+{
+  "name": "semux.org-backend",
+  "version": "1.0.0",
+  "description": "Backend code for some functionality of semux.org",
+  "main": "bin/www",
+  "apps": [
+    {
+      "name": "Backend",
+      "script": "backend.js",
+      "node_args": [
+        "--harmony"
+      ],
+      "args": [
+        "semux_backend"
+      ],
+      "env": {
+        "COMMON_ENV_VAR": "true",
+        "NODE_ENV": "development"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "Frontend",
+      "script": "bin/www",
+      "node_args": [
+        "--harmony"
+      ],
+      "env": {
+        "COMMON_ENV_VAR": "true",
+        "NODE_ENV": "development"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/honeycrypto/semux.org-backend.git"
+  },
+  "keywords": [
+    "semux"
+  ],
+  "author": "honeycrypto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/honeycrypto/semux.org-backend/issues"
+  },
+  "homepage": "https://github.com/honeycrypto/semux.org-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "pg": "^7.4.1",
+    "pm2": "^2.10.1",
+    "pug": "^2.0.0-rc.4",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "sequelize": "^4.33.4",
+    "sequelize-cli": "^4.0.0"
+  }
+}

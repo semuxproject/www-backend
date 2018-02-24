@@ -1,0 +1,38 @@
+body .site-wrapper {
+  background: #f6f9ff !important;
+}
+
+body .site-wrapper header .navbar {
+  padding: 0;
+}
+
+body .site-wrapper header {
+    background: url('https://semux.org/img/Background.png') no-repeat 50% 0;
+    background-size: cover;
+    box-shadow: 0 17px 43px 0 rgba(0, 0, 0, 0.2);
+}
+
+section#home .row p.faucet-description {
+  color: #3b3d66;
+}
+
+.site-wrapper section#home .row h1 {
+  font-size: 34px;
+  color: #3b3d66;
+}
+
+section#home .row p.faucet-description span {
+  display: block;
+}
+
+section#home .row p.faucet-description span.hidden {
+  display: none;
+}
+
+section#home .row .response.error {
+  color: #3b3d66;
+}
+
+section#home .row .response.success {
+  color: #3b3d66;
+}
