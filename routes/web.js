@@ -44,6 +44,19 @@ router.post('/testnetfaucet', async function(req, res) {
     return res.render('faucet', {error : true, reason : 'Wrong address format'});
   }
 
+  let prevRequest = await Transactions.findOne({
+    where : {ip : ip, status : 'sent'}, order : [['id', 'DESC']]
+  });
+  if (prevRequest) {
+    /* if last successful request from this IP has been made less than 3 hours ago */
+    if (prevRequest.created_at > now() - 60 * 60 * 3) {
+      return res.render('faucet', {
+        error : true,
+        reason : 'Someone already requested testnet coins from this ip '+ip+'. Please wait at least 3 hours before making new request.'
+      });
+    }
+  }
+
   try {
     await Transactions.create({
       address : req.body.address, status : 'new', ip : ip, created_at : now()

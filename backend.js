@@ -25,7 +25,11 @@ async function makeTransfers() {
       };
       let transaction = JSON.parse(await rp(options));
       console.log(transaction);
-      await request.update({status : 'sent'});
+      if (transaction.success == true) {
+        await request.update({status : 'sent'});
+      } else {
+        await request.update({status : 'error'});
+      }
     } catch(e) {
       console.log('[FAUCET] Failed to send coins to %s', to)
       await request.update({status : 'error'});
