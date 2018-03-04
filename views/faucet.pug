@@ -15,7 +15,7 @@ html(lang='en')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css', integrity='sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy', crossorigin='anonymous')
     link(rel='stylesheet', href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', crossorigin='anonymous')
     link(rel='stylesheet', href='https://www.semux.org/css/style.css')
-    link(rel='stylesheet', href='https://www.semux.org/testnetfaucet/public/css/custom.css')
+    link(rel='stylesheet', href='https://www.semux.org/testnetfaucet/public/css/custom.css?v2')
   body(data-spy='scroll', data-target='#headMenu', data-offset='86')
     .site-wrapper
       header
@@ -30,7 +30,7 @@ html(lang='en')
             #headMenu.collapse.navbar-collapse.justify-content-end
               ul.navbar-nav
                 li.nav-item
-                  a.nav-link(href='https://semux.org/') Main Website
+                  a.nav-link(href='https://semux.org/testnetfaucet') Testnet Faucet
                 li.nav-item
                   a.nav-link(href='https://testnet.semux.info/') Testnet Explorer
       #mobileOverlay(style='display:none')
@@ -47,6 +47,8 @@ html(lang='en')
                 form#faucetForm(method="POST", action="")
                   .col-md-6.offset-md-3(style='margin-bottom: 30px;')
                     input.form-control(type='text', name="address", placeholder='Semux Address')
+                    span 
+                      a.details(href="https://github.com/semuxproject/semux/wiki/Testnet#how-to-connect-semux-testnet", target="_blank") How to connect to Semux Testnet?
                   div(style='display:inline-block;text-align:center;')
                     button.btn.btn-danger.g-recaptcha(data-sitekey="6LfqUEgUAAAAAHW4miZIqwfsEX_jPZQZ_67hNDLk", data-callback="onSubmit") Send
             - else if (success == true)

@@ -36,3 +36,9 @@ section#home .row .response.error {
 section#home .row .response.success {
   color: #3b3d66;
 }
+
+section#home a.details {
+  color: #4a90e2;
+  text-decoration: underline;
+  font-size: 13px;
+}
