@@ -9,9 +9,21 @@ const AMOUNT = 1000 * 1000000000;
 const FEE = 0.005 * 1000000000;
 const FROM = CONFIG.wallet.address;
 const PASS = CONFIG.wallet.password;
+const GET_BALANCE = "https://www.semux.org/api/v1/get_balance";
 
 async function makeTransfers() {
-  let pendingRequests = await Transactions.findAll({where : {status : 'new'}});
+  let pendingRequests = await Transactions.findAll({
+    where : {$or: [{status: 'new'}, {status: 'error'}]},
+    order : [['id', 'ASC']]
+  });
+  if (pendingRequests.length) {
+    try {
+      let balance = JSON.parse(await rp(GET_BALANCE));
+      if (balance.balance < 1000.005) {
+        return;
+      }
+    } catch(e) {}
+  }
   for (let request of pendingRequests) {
     let to = request.address;
     console.log('[FAUCET] Processing transfer to %s', to);

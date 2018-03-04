@@ -45,7 +45,7 @@ router.post('/testnetfaucet', async function(req, res) {
   }
 
   let prevRequest = await Transactions.findOne({
-    where : {ip : ip, status : 'sent'}, order : [['id', 'DESC']]
+    where : {ip : ip}, order : [['id', 'DESC']]
   });
   if (prevRequest) {
     /* if last successful request from this IP has been made less than 3 hours ago */
