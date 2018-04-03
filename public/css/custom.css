@@ -1,4 +1,4 @@
-body, 
+body,
 body .site-wrapper {
   background: #f6f9ff !important;
 }
@@ -42,4 +42,8 @@ section#home a.details {
   color: #4a90e2;
   text-decoration: underline;
   font-size: 13px;
+}
+
+.hidden {
+  display: none;
 }
