@@ -16,8 +16,13 @@ $(function() {
             $('.hidden').show();
           }
         }
-        if (response.result == 'error') {
+        if (response.result == 'error' && response.message != 'Balance check temporarily unavailable') {
           $('#response').html(response.message);
+        } else {
+          $('#eth_address').parent().hide();
+          $('#verifyAirdropBalance').hide();
+          $('#response').html(response.message);
+          $('.hidden').show();
         }
       }
     });

@@ -57,6 +57,18 @@ html(lang='en')
                   div(style='display:inline-block;text-align:center;')
                     button#verifyAirdropBalance.btn.btn-danger Check Balance
                     button.hidden.btn.btn-danger.g-recaptcha(data-sitekey="6LfqUEgUAAAAAHW4miZIqwfsEX_jPZQZ_67hNDLk", data-callback="onSubmit") Submit
+                  div(style="margin-top: 25px")
+                    hr
+                    p.faucet-description(style="max-width: 600px; margin: 0 auto; font-size: 13px;") 
+                      | 1. You need to have non-zero balance in your Etherum wallet at block #5357795 (Apr-01-2018 12:00:05 AM +UTC).
+                      br
+                      | 2. You need to sign your Semux address with your Etherum wallet.
+                      br
+                      | 3. The airdrop rate is 2 ETH = 1 SEM. You will get at least 5 SEM and at most 500 SEM per address.
+                      br
+                      | 4. The total airdrop allocation is 2,000,000 SEM.
+                      br
+                      | 5. Applications will be processed on Saturday weekly.
             - else if (success == true)
               .col-xs-12.col-md-12(style='text-align: center;')
                 h1 Success
@@ -77,4 +89,4 @@ html(lang='en')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js', integrity='sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4', crossorigin='anonymous')
     script(src='https://www.google.com/recaptcha/api.js')
-    script(src='https://www.semux.org/testnetfaucet/public/js/airdrop.js')
+    script(src='https://www.semux.org/testnetfaucet/public/js/airdrop.js?v10')
