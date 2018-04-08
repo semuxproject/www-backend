@@ -11,9 +11,9 @@ var EthAirdropAddresses = require('../models').EthAirdropAddresses;
 const ENV = process.env.NODE_ENV || 'development';
 const CONFIG = require('../config/config.json')[ENV];
 
-const MIN_AIRDROP_AMOUNT = 1;
-const MAX_AIRDROP_AMOUNT = 1000;
-const AIRDROP_RATIO = 0.1; // 1 SEM = 10 ETH
+const MIN_AIRDROP_AMOUNT = 0;
+const MAX_AIRDROP_AMOUNT = 500;
+const AIRDROP_RATIO = 0.5; // 1 SEM = 2 ETH
 
 var snapshot = {};
 
