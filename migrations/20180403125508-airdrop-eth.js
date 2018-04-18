@@ -10,7 +10,6 @@ module.exports = {
         },
         eth_address: {
           type: Sequelize.STRING,
-          unique: true,
           allowNull: false
         },
         sem_address: {

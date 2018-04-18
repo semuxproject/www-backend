@@ -11,7 +11,7 @@ var EthAirdropAddresses = require('../models').EthAirdropAddresses;
 const ENV = process.env.NODE_ENV || 'development';
 const CONFIG = require('../config/config.json')[ENV];
 
-const MIN_AIRDROP_AMOUNT = 0;
+const MIN_AIRDROP_AMOUNT = 1;
 const MAX_AIRDROP_AMOUNT = 500;
 const AIRDROP_RATIO = 0.5; // 1 SEM = 2 ETH
 
@@ -63,10 +63,12 @@ router.post('/airdrop/eth', async function(req, res) {
     address = '0x' + address;
   }
 
+  /*
   let participant = await EthAirdropAddresses.findOne({where : {eth_address : address}});
   if (participant) {
     return res.render('airdrop', {error : true, reason : 'This ETH address is already registered for airdrop'});
   }
+  */
 
   let balance = snapshot[address];
 
@@ -83,7 +85,7 @@ router.post('/airdrop/eth', async function(req, res) {
       eth_address : address,
       sem_address : req.body.sem_address,
       signature : req.body.signature,
-      reward : reward,
+      reward : 0,
       created_at : Math.floor(Date.now() / 1000)
     });
   } catch(e) { console.log(e); }
@@ -101,6 +103,7 @@ router.get('/eth_airdrop_balance', async function(req, res) {
     return res.json({"result" : "success", balance : 0, reward : 0});
   }
 
+  /*
   let participant = await EthAirdropAddresses.findOne({where : {eth_address : address}});
   if (participant) {
     return res.json({
@@ -108,6 +111,7 @@ router.get('/eth_airdrop_balance', async function(req, res) {
       message : 'This ETH address is already registered for airdrop',
       balance : 0, reward : 0});
   }
+  */
 
   let reward = parseInt(AIRDROP_RATIO * parseFloat(balance), 10);
   if (reward < MIN_AIRDROP_AMOUNT) {

@@ -9,7 +9,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     eth_address: {
       type: DataTypes.STRING,
-      unique: true,
       allowNull: false
     },
     sem_address: {

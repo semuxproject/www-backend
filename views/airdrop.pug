@@ -47,11 +47,15 @@ html(lang='en')
                   .col-md-6.offset-md-3(style='margin-bottom: 30px;')
                     input#eth_address.form-control(type='text', name="eth_address", placeholder='Ethereum Address')
                   .hidden.col-md-6.offset-md-3(style='margin-bottom: 30px;')
-                    label Your Semux Address: 
+                    label 
+                      | Your Semux Address 
+                      | (
+                      a(href="https://github.com/semuxproject/semux/releases",target="_blank") download 
+                      | the Semux Wallet to get address):
                     input#sem_address.form-control(type='text', name="sem_address", placeholder='Semux Address')
                   .hidden.col-md-6.offset-md-3(style='margin-bottom: 30px;')
                     label Sign your Semux Address to prove that you own ETH address submitted above
-                    textarea#signature.form-control(type='text', name="signature", placeholder='Signature')
+                    textarea#signature.form-control(type='text', name="signature", rows="8", placeholder='{"address": "0x7e5f4552091a69125d5dfcb7b8c2659029395bdf",\n"msg": "0x2441fc9610c07b08b4570869a03bf0bc2145be65",\n"sig": "0xe18a571ecff856bad7c1d8fa53dc3ac6eade92077a8f60cc557e483f5b6a0ac311d11bc6dd9cafec4d361a2b0f04170d8192be1cc260105c74d14a410c1701721c",\n"version": "3",\n"signer": "MEW"}')
                     span.hidden 
                       a.details(href="https://www.myetherwallet.com/signmsg.html", target="_blank") You can use MyEtherWallet to sign a message
                   div(style='display:inline-block;text-align:center;')
@@ -60,11 +64,11 @@ html(lang='en')
                   div(style="margin-top: 25px")
                     hr
                     p.faucet-description(style="max-width: 600px; margin: 0 auto; font-size: 13px;") 
-                      | 1. You need to have non-zero balance in your Etherum wallet at block #5357795 (Apr-01-2018 12:00:05 AM +UTC).
+                      | 1. You need to have at least 0.1 ETH in your Etherum wallet at block #5357795 (Apr-01-2018).
                       br
                       | 2. You need to sign your Semux address with your Etherum wallet.
                       br
-                      | 3. The airdrop rate is 2 ETH = 1 SEM. You will get at least 5 SEM and at most 500 SEM per address.
+                      | 3. The airdrop rate is 2 ETH = 1 SEM. You will get at least 1 SEM and at most 500 SEM per address.
                       br
                       | 4. The total airdrop allocation is 2,000,000 SEM.
                       br
@@ -73,7 +77,7 @@ html(lang='en')
               .col-xs-12.col-md-12(style='text-align: center;')
                 h1 Success
                 p.faucet-description
-                  span Thanks for your submission. You will receive #{reward} SEM during next distribution round.
+                  span Thanks for your submission. Your submission will be processed on Saturday.
             - else if (error == true) 
               .col-xs-12.col-md-12(style='text-align: center;')
                 h1 Error
