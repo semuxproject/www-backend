@@ -67,15 +67,15 @@ router.post('/airdrop/eth', async function(req, res) {
     });
   } catch(e) { console.log(e); }
 
-  res.render('airdrop', {success : true, reward : reward});
+  res.render('airdrop', {success : true, reward : 0});
 });
 
 router.get('/airdrop/eth/summary', async function(req, res) {
-  res.render('airdrop_summary', {stats : ethAirdropSummary, total : semDistributed});
+  res.render('airdrop_summary', {stats : ethAirdropSummary, total : semToEthSent});
 });
 
 var ethAirdropSummary = [];
-var semDistributed = 0;
+var semToEthSent = 0;
 
 async function updateEthAirdrop() {
   let json = [];
@@ -97,7 +97,7 @@ async function updateEthAirdrop() {
   for (let item of json) {
     sum += parseFloat(item.airdrop);
   }
-  semDistributed = sum;
+  semToEthSent = sum;
   console.log('Updated ETH Aridrop Summary');
   json = null;
   return;

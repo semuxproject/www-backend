@@ -53,3 +53,9 @@ section#home table a.sig-link {
   text-decoration: underline;
   font-size: 12px;
 }
+
+p.faucet-description a.join-airdrop {
+  color: #4a90e2;
+  font-size: 14px;
+  text-decoration: underline; 
+}
