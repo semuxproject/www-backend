@@ -48,7 +48,7 @@ section#home a.details {
   display: none;
 }
 
-.sig-link {
+section#home table a.sig-link {
   color: #e05902;
   text-decoration: underline;
   font-size: 12px;

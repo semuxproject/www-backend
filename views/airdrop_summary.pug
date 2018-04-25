@@ -15,7 +15,7 @@ html(lang='en')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css', integrity='sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy', crossorigin='anonymous')
     link(rel='stylesheet', href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', crossorigin='anonymous')
     link(rel='stylesheet', href='https://semux.org/css/style.css')
-    link(rel='stylesheet', href='https://www.semux.org/testnetfaucet/public/css/custom.css?v20')
+    link(rel='stylesheet', href='https://www.semux.org/testnetfaucet/public/css/custom.css?v30')
   body(data-spy='scroll', data-target='#headMenu', data-offset='86')
     .site-wrapper
       header
@@ -55,7 +55,7 @@ html(lang='en')
                         tr 
                           td #{counter}
                           td 
-                            a(href="https://testnet.semux.info/explorer/account/" + item.sem_address, target="_blank", style="font-size: 12px;") #{item.sem_address}
+                            a(href="https://semux.info/explorer/account/" + item.sem_address, target="_blank", style="font-size: 12px;") #{item.sem_address}
                           td #{item.airdrop.toFixed(2)} SEM
                           td #{item.eth_balance.toFixed(2)} ETH
                           td 
