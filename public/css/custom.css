@@ -47,3 +47,9 @@ section#home a.details {
 .hidden {
   display: none;
 }
+
+.sig-link {
+  color: #e05902;
+  text-decoration: underline;
+  font-size: 12px;
+}

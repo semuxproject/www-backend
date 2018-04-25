@@ -15,19 +15,6 @@ const MIN_AIRDROP_AMOUNT = 1;
 const MAX_AIRDROP_AMOUNT = 500;
 const AIRDROP_RATIO = 0.5; // 1 SEM = 2 ETH
 
-var snapshot = {};
-
-csv().fromFile('./assets/eth.txt')
-.on('json',(json) => {
-  if (!json.address.match(/^0x/)) {
-    json.address = '0x' + json.address;
-  }
-  snapshot[json.address] = json.balance;
-})
-.on('done',(error) => {
-  console.log('ETH Snapshot loaded');
-});
-
 router.get('/airdrop/eth', async function(req, res) {
   res.render('airdrop');
 });
@@ -70,16 +57,6 @@ router.post('/airdrop/eth', async function(req, res) {
   }
   */
 
-  let balance = snapshot[address];
-
-  let reward = parseInt(AIRDROP_RATIO * parseFloat(balance), 10);
-  if (reward < MIN_AIRDROP_AMOUNT) {
-    reward = MIN_AIRDROP_AMOUNT;
-  }
-  if (reward > MAX_AIRDROP_AMOUNT) {
-    reward = MAX_AIRDROP_AMOUNT;
-  }
-
   try {
     await EthAirdropAddresses.create({
       eth_address : address,
@@ -93,35 +70,42 @@ router.post('/airdrop/eth', async function(req, res) {
   res.render('airdrop', {success : true, reward : reward});
 });
 
-router.get('/eth_airdrop_balance', async function(req, res) {
-  let address = req.query.eth_address;
-  if (!address.match(/^0x/)) {
-    address = '0x' + address;
-  }
-  let balance = snapshot[address];
-  if (!balance) {
-    return res.json({"result" : "success", balance : 0, reward : 0});
-  }
-
-  /*
-  let participant = await EthAirdropAddresses.findOne({where : {eth_address : address}});
-  if (participant) {
-    return res.json({
-      "result" : "error",
-      message : 'This ETH address is already registered for airdrop',
-      balance : 0, reward : 0});
-  }
-  */
-
-  let reward = parseInt(AIRDROP_RATIO * parseFloat(balance), 10);
-  if (reward < MIN_AIRDROP_AMOUNT) {
-    reward = MIN_AIRDROP_AMOUNT;
-  }
-  if (reward > MAX_AIRDROP_AMOUNT) {
-    reward = MAX_AIRDROP_AMOUNT;
-  }
-  return res.json({"result" : "success", balance : balance, reward : reward});
+router.get('/airdrop/eth/summary', async function(req, res) {
+  res.render('airdrop_summary', {stats : ethAirdropSummary, total : semDistributed});
 });
+
+var ethAirdropSummary = [];
+var semDistributed = 0;
+
+async function updateEthAirdrop() {
+  let json = [];
+  try {
+    json = JSON.parse( await rp('https://www.semux.org/assets/airdrop/ethereum/summary.json') );
+  } catch(e) { return; }
+
+  if (json) {
+    ethAirdropSummary = json;
+    ethAirdropSummary.sort(function(a,b) {
+      if (parseFloat(a.eth_balance) > parseFloat(b.eth_balance))
+        return -1;
+      if (parseFloat(a.eth_balance) < parseFloat(b.eth_balance))
+        return 1;
+      return 0;
+    });
+  }
+  let sum = 0;
+  for (let item of json) {
+    sum += parseFloat(item.airdrop);
+  }
+  semDistributed = sum;
+  console.log('Updated ETH Aridrop Summary');
+  json = null;
+  return;
+}
+
+/* Update ETH Airdrop summary every 1 hour and on startup */
+var updateEthAirdropInterval = setInterval(updateEthAirdrop, 60 * 60 * 1000);
+updateEthAirdrop();
 
 router.get('/testnetfaucet', async function(req, res) {
   res.render('faucet');
