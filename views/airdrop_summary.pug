@@ -15,7 +15,7 @@ html(lang='en')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css', integrity='sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy', crossorigin='anonymous')
     link(rel='stylesheet', href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', crossorigin='anonymous')
     link(rel='stylesheet', href='https://semux.org/css/style.css')
-    link(rel='stylesheet', href='https://www.semux.org/testnetfaucet/public/css/custom.css?v30')
+    link(rel='stylesheet', href='https://www.semux.org/testnetfaucet/public/css/custom.css?v40')
   body(data-spy='scroll', data-target='#headMenu', data-offset='86')
     .site-wrapper
       header
@@ -37,8 +37,9 @@ html(lang='en')
               .col-xs-12.col-md-12(style='text-align: center;')
                 img(src="https://www.semux.org/testnetfaucet/public/img/eth.png", width="72")
                 h1 Semux Airdrop Summary
-                p.faucet-description 
-                  | #{total.toFixed(2)} SEM distributed 
+                p.faucet-description
+                  | #{total.toFixed(2)} SEM distributed
+                  br
                   a.join-airdrop(href="https://www.semux.org/airdrop/eth") Read the rules and apply here
                 table.table
                   thead
@@ -50,16 +51,16 @@ html(lang='en')
                       th ETH Address & Signature
                   tbody
                     - var counter = 0
-                    each item in stats 
+                    each item in stats
                       - if (item.airdrop > 0)
                         - counter += 1
-                        tr 
+                        tr
                           td #{counter}
-                          td 
+                          td
                             a(href="https://semux.info/explorer/account/" + item.sem_address, target="_blank", style="font-size: 12px;") #{item.sem_address}
                           td #{item.airdrop.toFixed(2)} SEM
                           td #{item.eth_balance.toFixed(2)} ETH
-                          td 
+                          td
                             a(href="https://etherscan.io/address/" + item.eth_address, target="_blank", style="font-size: 12px;") #{item.eth_address}
                             br
                             a.sig-link(href="javascript:;", data-content="0x"+item.signature, data-toggle="popover", data-title="Signature") show signature

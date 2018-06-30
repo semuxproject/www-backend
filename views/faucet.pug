@@ -47,8 +47,8 @@ html(lang='en')
                 form#faucetForm(method="POST", action="")
                   .col-md-6.offset-md-3(style='margin-bottom: 30px;')
                     input.form-control(type='text', name="address", placeholder='Semux Address')
-                    span 
-                      a.details(href="https://github.com/semuxproject/semux/wiki/Testnet#how-to-connect-semux-testnet", target="_blank") How to connect to Semux Testnet?
+                    span
+                      a.details(href="https://github.com/semuxproject/semux-core/blob/master/docs/Testnet.md#how-to-connect-semux-testnet", target="_blank") How to connect to Semux Testnet?
                   div(style='display:inline-block;text-align:center;')
                     button.btn.btn-danger.g-recaptcha(data-sitekey="6LfqUEgUAAAAAHW4miZIqwfsEX_jPZQZ_67hNDLk", data-callback="onSubmit") Send
             - else if (success == true)
@@ -56,18 +56,18 @@ html(lang='en')
                 h1 Success
                 p.faucet-description
                   span You will receive 1000 SEM within 60 seconds.
-                  span 
-                    | Check 
-                    a(href="https://testnet.semux.info/explorer/account/" + address) testnet blockchain explorer 
+                  span
+                    | Check
+                    a(href="https://testnet.semux.info/explorer/account/" + address) testnet blockchain explorer
                     | - transaction will appear shortly.
                   span.alert.alert-warning(style='max-width: 600px;margin: 20px auto;')
                     | Please avoid registering delegate if you're not ready to maintain a validator. Thanks!
-            - else if (error == true) 
+            - else if (error == true)
               .col-xs-12.col-md-12(style='text-align: center;')
                 h1 Error
                 p.faucet-description
                   span #{reason}
-                  span 
+                  span
                     a(href="https://semux.org/testnetfaucet") Retry
     script.
       function onSubmit(token) {
