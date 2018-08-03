@@ -15,7 +15,7 @@ const DECIMALS = 1000000000;
 router.get('/get_balance', async function(req, res) {
 
   let options = {
-    url: CONFIG.wallet.host + 'get_account?address='+CONFIG.wallet.address,
+    url: CONFIG.wallet.host + 'account?address='+CONFIG.wallet.address,
     headers: {
       'Authorization': 'Basic ' + CONFIG.wallet.auth
     }

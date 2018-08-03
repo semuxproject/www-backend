@@ -1,6 +1,7 @@
 ## Backend of semux.org
 This repository includes: 
 * Testnet Faucet: https://www.semux.org/testnetfaucet
+* Airdrop to ETH holders: https://www.semux.org/airdrop/eth
 
 ### Requirements 
 * PostgreSQL v9.5+

@@ -28,14 +28,16 @@ async function makeTransfers() {
     let to = request.address;
     console.log('[FAUCET] Processing transfer to %s', to);
     try {
-      let query = "transfer?from="+FROM+"&to="+to+"&value="+AMOUNT+"&fee="+FEE+"&password="+PASS;
+      let query = "transaction/transfer?from="+FROM+"&to="+to+"&value="+AMOUNT+"&fee="+FEE;
       let options = {
         url: CONFIG.wallet.host + query,
         headers: {
-          'Authorization': 'Basic ' + CONFIG.wallet.auth
+          'Authorization': 'Basic ' + CONFIG.wallet.auth,
+          'accept': 'application/json'
         }
       };
-      let transaction = JSON.parse(await rp(options));
+
+      let transaction = JSON.parse(await rp.post(options));
       console.log(transaction);
       if (transaction.success == true) {
         await request.update({status : 'sent'});
