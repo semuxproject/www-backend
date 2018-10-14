@@ -59,10 +59,10 @@
     "pg": "^7.4.1",
     "pm2": "^2.10.1",
     "pug": "^2.0.0-rc.4",
-    "request": "^2.83.0",
+    "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "sequelize": "^4.33.4",
     "sequelize-cli": "^4.0.0",
-    "web3": "^1.0.0-beta.33"
+    "web3": "^1.0.0-beta2"
   }
 }
