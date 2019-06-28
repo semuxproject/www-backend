@@ -1,6 +1,6 @@
-"use strict";
+'use strict'
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Transactions = sequelize.define('Transactions', {
     id: {
       type: DataTypes.INTEGER,
@@ -21,12 +21,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     created_at: {
-      type : DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {
-    tableName: 'transactions', timestamps : false
-  });
+    tableName: 'transactions', timestamps: false
+  })
 
-  return Transactions;
-};
+  return Transactions
+}

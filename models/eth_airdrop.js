@@ -1,6 +1,6 @@
-"use strict";
+'use strict'
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var EthAirdropAddresses = sequelize.define('EthAirdropAddresses', {
     id: {
       type: DataTypes.INTEGER,
@@ -29,12 +29,12 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 'new'
     },
     created_at: {
-      type : DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: true
     }
   }, {
-    tableName: 'airdrop_eth', timestamps : false
-  });
+    tableName: 'airdrop_eth', timestamps: false
+  })
 
-  return EthAirdropAddresses;
-};
+  return EthAirdropAddresses
+}

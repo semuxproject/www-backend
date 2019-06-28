@@ -1,26 +1,26 @@
-"use strict";
+'use strict'
 
-var express = require('express');
-var bodyParser = require('body-parser');
+var express = require('express')
+var bodyParser = require('body-parser')
 
-const ENV = process.env.NODE_ENV || 'development';
-const CONFIG = require('../config/config.json')[ENV];
+const ENV = process.env.NODE_ENV || 'development'
+const CONFIG = require('../config/config.json')[ENV]
 
-var app = express();
+var app = express()
 
-app.set('view engine', 'pug');
-app.set('views', 'views');
-app.use(express.static('public'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.set('view engine', 'pug')
+app.set('views', 'views')
+app.use(express.static('public'))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 /* ROUTES */
-var web = require('../routes/web.js');
-var api = require('../routes/api.js');
+var web = require('../routes/web.js')
+var api = require('../routes/api.js')
 
-app.use('', web);
-app.use('/api/v1', api);
+app.use('', web)
+app.use('/api/v1', api)
 
 app.listen(CONFIG.webport, function () {
-  console.log('[%s] Application is listening on 127.0.0.1:%s', ENV, CONFIG.webport);
-});
+  console.log('[%s] Application is listening on 127.0.0.1:%s', ENV, CONFIG.webport)
+})
